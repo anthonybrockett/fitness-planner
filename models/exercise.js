@@ -14,7 +14,12 @@ const exerciseSchema = new Schema({
     difficulty: {
         type: String,
         required: true
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User'},
+    userName: String,
+    userAvatar: String
 })
 
 module.exports = mongoose.model('Exercise', exerciseSchema)
