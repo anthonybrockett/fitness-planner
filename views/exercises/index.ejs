@@ -1,5 +1,55 @@
 <%- include('../partials/header') %>
 
-
+<% if (user) { %>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Target Area</th>
+                <th>Difficulty</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% exercises.forEach(function(e) { %>
+                <% if ( user?._id.equals(e.user) ) { %>
+                    <tr>
+                        <td><%= e.name %></td>
+                        <td><%= e.targetArea %></td>
+                        <td><%= e.difficulty %></td>
+                        <td><a href="/exercises/<%= e._id %>" style="color:black"><button>Details</button></a></td>
+                    </tr>
+                <% } %>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h3>Sample List<h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Target Area</th>
+                <th>Difficulty</th>
+            </tr>
+        </thead>
+        <tbody>
+                <tr>
+                    <td>Pushups</td>
+                    <td>Chest</td>
+                    <td>Beginner</td>
+                </tr>
+                <tr>
+                    <td>Tricep Kickbakcks</td>
+                    <td>Arms</td>
+                    <td>Beginner</td>
+                </tr>
+                <tr>
+                    <td>Pull Ups</td>
+                    <td>Back</td>
+                    <td>Beginner</td>
+                </tr>
+        </tbody>
+    </table>
+<% } %>
 
 <%- include('../partials/footer') %>

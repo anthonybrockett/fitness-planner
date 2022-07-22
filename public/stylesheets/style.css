@@ -55,3 +55,20 @@ nav > a.active {
 .login img {
   height: 30px;
 }
+
+table {
+  font-size: 20px;
+
+}
+
+table thead th {
+  padding: 5px;
+  border-bottom: 2px solid #424748;
+}
+
+table td {
+  padding: 10px;
+  text-align: center;
+  min-width: 100px;
+}
+
