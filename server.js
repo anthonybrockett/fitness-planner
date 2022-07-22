@@ -15,7 +15,8 @@ require('./config/database');
 require('./config/passport');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var exercisesRouter = require('./routes/exercises');
+const workoutsRouter = require('./routes/workouts');
 
 var app = express();
 
@@ -52,7 +53,8 @@ app.use(function(req, res, next) {
 const isLoggedIn = require('./config/auth');
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/', exercisesRouter);
+app.use('/', workoutsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

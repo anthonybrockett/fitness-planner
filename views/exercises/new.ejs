@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+
+<form id='new-exercise-form' action="/exercises" method="POST">
+    <label >Exercise Name: </label>
+    <input type="text" name="name" autocapitalize="on" autocomplete="off">
+    <br>
+    <label>Target Area: </label>
+    <select name="targetArea">
+        <option value="Arms">Arms</option>
+        <option value="Cardio">Cardio</option>
+        <option value="Chest">Chest</option>
+        <option value="Core">Core</option>
+        <option value="Legs">Legs</option>
+        <option value="Shoulders">Shoulders</option>
+        <option value="Warm Up">Warm Up</option>
+    </select>
+    <br>
+    <label>Difficulty: </label>
+    <select name="difficulty">
+        <option value="Beginner">Beginner</option>
+        <option value="Intermediate">Intermediate</option>
+        <option value="Advanced">Advanced</option>
+    </select>
+    <br>
+    <input type="submit" value="Add Exercise">
+</form>
+
+<%- include('../partials/footer') %>
