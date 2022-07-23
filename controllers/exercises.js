@@ -3,7 +3,8 @@ const Exercise = require('../models/exercise');
 module.exports = {
     index,
     new: newExercise,
-    create
+    create,
+    show
 }
 
 function index(req, res) {
@@ -24,5 +25,11 @@ function create(req, res) {
         exercise.save(function(err) {
             res.redirect('/exercises/new')   
         });
+    })
+}
+
+function show(req, res) {
+    Exercise.findById(req.params.id, function(err, exercise) {
+        res.render('exercises/show', { title: `${exercise.name}`, exercise })
     })
 }

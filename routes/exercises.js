@@ -12,5 +12,8 @@ router.get('/exercises/new', isLoggedIn, exercisesCtrl.new)
 // Create Function
 router.post('/exercises', isLoggedIn, exercisesCtrl.create)
 
+// Show Function
+router.get('/exercises/:id', isLoggedIn, exercisesCtrl.show)
+
 
 module.exports = router;
