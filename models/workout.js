@@ -14,7 +14,12 @@ const workoutSchema = new Schema({
     equipment: {
         type: String,
         required: true
-    }
+    },
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User'},
+    userName: String,
+    userAvatar: String
 })
 
 module.exports = mongoose.model('Workout', workoutSchema)

@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 5px;
   height: 100vh;
   display: grid;
   grid-template-rows: 50px 1fr;
@@ -71,4 +71,3 @@ table td {
   text-align: center;
   min-width: 100px;
 }
-
