@@ -4,6 +4,7 @@
     <div>Target Area: <%= exercise.targetArea %></div>
     <div>Difficulty: <%= exercise.difficulty %></div>
     <% if ( user?._id.equals(exercise.user) ) { %>
+        <a href="/exercises/<%= exercise._id%>/edit"><button>Edit Exercise</button></a>
         <form action="/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
           <button type="submit">Delete Exercise</button>
         </form>

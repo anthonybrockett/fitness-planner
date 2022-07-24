@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<form action="/workouts/<%= workout._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label >Workout Name: </label>
+    <input id="workout-name-input" type="text" name="name" autocomplete="off" value="<%= workout.name %>">
+    <br>
+    <label>Target Area: </label>
+    <select name="targetArea">
+        <option value="Cardio" <%= (workout.targetArea === "Cardio") ? "selected" : "" %>>Cardio</option>
+        <option value="Core"<%= (workout.targetArea === "Core") ? "selected" : "" %>>Core</option>
+        <option value="Full Body" <%= (workout.targetArea === "Full Body") ? "selected" : "" %>>Full Body</option>
+        <option value="Lower Body" <%= (workout.targetArea === "Lower Body") ? "selected" : "" %>>Lower Body</option>
+        <option value="Upper Body" <%= (workout.targetArea === "Upper Body") ? "selected" : "" %>>Upper Body</option>
+
+    </select>
+    <br>
+    <label>Equipment: </label>
+    <select name="equipment" default="<%= workout.equipment %>">
+        <option value="None" <%= (workout.equipment  === "None") ? "selected" : "" %>>None</option>
+        <option value="Minimal" <%= (workout.equipment  === "Minimal") ? "selected" : "" %>>Minimal</option>
+        <option value="Moderate" <%= (workout.equipment  === "Moderate") ? "selected" : "" %>>Moderate</option>
+        <option value="Substantial" <%= (workout.equipment  === "Substantial") ? "selected" : "" %>>Substantial</option>
+    </select>
+    <br>
+    <input type="submit" value="Save Changes">
+</form>
+
+<form action="/workouts/<%= workout._id %>" method="GET" autocomplete="off">
+    <input type="submit" value="Discard Changes">
+</form>
+
+<%- include('../partials/footer') %>
+

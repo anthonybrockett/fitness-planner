@@ -15,8 +15,15 @@ router.post('/exercises', isLoggedIn, exercisesCtrl.create)
 // Show Function
 router.get('/exercises/:id', isLoggedIn, exercisesCtrl.show)
 
+// Edit Function
+router.get('/exercises/:id/edit', isLoggedIn, exercisesCtrl.edit)
+
 // Delete Function
 router.delete('/exercises/:id', isLoggedIn, exercisesCtrl.delete)
+
+// Update Function
+router.put('/exercises/:id', isLoggedIn, exercisesCtrl.update)
+
 
 
 module.exports = router;

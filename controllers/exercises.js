@@ -5,7 +5,9 @@ module.exports = {
     new: newExercise,
     create,
     show,
-    delete: deleteExercise
+    delete: deleteExercise,
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -44,4 +46,21 @@ function deleteExercise(req, res) {
         res.redirect(`/exercises`);
     });
 }
+
+function edit(req, res) {
+    Exercise.findById(req.params.id, function(err, exercise) {
+        res.render(`exercises/edit`, {title: `${exercise.name}`, exercise })
+    });
+}
     
+function update(req, res) {
+    Exercise.findById(req.params.id, function(err, updatedExercise) {
+        // exercise.name = req.body.name;
+        // exercise.targetArea = req.body.targetArea;
+        // exercise.difficulty = req.body.difficulty;
+        req.body.name = updatedExercise.name;
+        req.body.targetArea = updatedExercise.targetArea;
+        req.body.difficulty = updatedExercise.difficulty;
+        res.redirect(`/exercises/${req.params.id}`)
+    });
+}

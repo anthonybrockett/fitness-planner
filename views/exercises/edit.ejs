@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<form action="/exercises/<%= exercise._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label >Exercise Name: </label>
+    <input id="exercise-name-input" type="text" name="name" autocomplete="off" value="<%= exercise.name %>">
+    <br>
+    <label>Target Area: </label>
+    <select name="targetArea">
+        <option value="Arms" <%= (exercise.targetArea === "Arms") ? "selected" : "" %>>Arms</option>
+        <option value="Back" <%= (exercise.targetArea === "Back") ? "selected" : "" %>>Back</option>
+        <option value="Cardio" <%= (exercise.targetArea === "Cardio") ? "selected" : "" %>>Cardio</option>
+        <option value="Chest" <%= (exercise.targetArea === "Chest") ? "selected" : "" %>>Chest</option>
+        <option value="Core"<%= (exercise.targetArea === "Core") ? "selected" : "" %>>Core</option>
+        <option value="Legs" <%= (exercise.targetArea === "Legs") ? "selected" : "" %>>Legs</option>
+        <option value="Shoulders" <%= (exercise.targetArea === "Shoulders") ? "selected" : "" %>>Shoulders</option>
+        <option value="Warm Up" <%= (exercise.targetArea === "Warm Up") ? "selected" : "" %>>Warm Up</option>
+    </select>
+    <br>
+    <label>Difficulty: </label>
+    <select name="difficulty" default="<%= exercise.difficulty %>">
+        <option value="Beginner" <%= (exercise.difficulty === "Beginner") ? "selected" : "" %>>Beginner</option>
+        <option value="Intermediate" <%= (exercise.difficulty === "Intermediate") ? "selected" : "" %>>Intermediate</option>
+        <option value="Advanced" <%= (exercise.difficulty === "Advanced") ? "selected" : "" %>>Advanced</option>
+    </select>
+    <br>
+    <input type="submit" value="Save Changes">
+</form>
+
+<form action="/exercises/<%= exercise._id %>" method="GET" autocomplete="off">
+    <input type="submit" value="Discard Changes">
+</form>
+
+<%- include('../partials/footer') %>
