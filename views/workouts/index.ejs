@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<% if (user && workouts.name ) { %>
+<% if (user && workouts.length ) { %>
     <table>
         <thead>
             <tr>
@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             <% workouts.forEach(function(w) { %>
-                <% if ( user?._id.equals(w.user) && w.exerciseList.length ) { %>
+                <% if ( user?._id.equals(w.user)) { %>
                     <tr>
                         <td><%= w.name %></td>
                         <td><%= w.targetArea %></td>
@@ -28,6 +28,11 @@
         <tbody>
                 <tr>
                     <td>No Workouts Yet</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="/workouts/new" style="margin:5px"><button>New Workout</button></a>
+                    </td>
                 </tr>
         </tbody>
     </table>
