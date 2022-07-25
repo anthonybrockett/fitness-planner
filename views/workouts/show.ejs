@@ -1,14 +1,54 @@
 <%- include('../partials/header') %>
 
-<section>
-    <div>Target Area: <%= workout.targetArea %></div>
-    <div>Equipment: <%= workout.equipment %></div>
-    <% if ( user?._id.equals(workout.user) ) { %>
-        <a href="/workouts/<%= workout._id%>/edit"><button>Edit Workout</button></a>
-        <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
-          <button type="submit">Delete Workout</button>
-        </form>
-      <% } %>
-</section>
+<h3>Target Area: <%= workout.targetArea %></h3>
+<h3>Equipment: <%= workout.equipment %></h3>
+<h3>Exercise List:</h3>
+
+<% if (workout.exerciseList.length) { %>
+    <table>
+        <!-- <thead>
+            <tr>
+                <th>Name</th>
+                <th>Target Area</th>
+                <th>Difficulty</th>
+            </tr>
+        </thead> -->
+        <tbody>
+            <% workout.exerciseList.forEach(function(e) { %>
+                <tr>
+                    <td><%= e.name %></td>
+                    <!-- <td><%= e.targetArea %></td> -->
+                    <!-- <td><%= e.difficulty %></td> -->
+                    <td>
+                        <% if ( user?._id.equals(workout.user) ) { %>
+                          <form action="/workouts/<%= workout._id %>/exercises/<%= e._id %>?_method=DELETE" method="POST">
+                            <button type="submit">Remove</button>
+                          </form>
+                        <% } %>
+                      </td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+<% } else { %>
+    <h4>No Exercises</h4>
+<% } %>  
+
+<form id="add-exercise-to-workout" action="/workouts/<%= workout._id %>/exercises" method="POST">
+    <select name="exerciseId">
+        <% let newExercises = exercises.slice(0); %>
+        <%- newExercises.map(e => 
+        `<option value="${e._id}">${e.name}</option>`
+        ).join('') %>
+    </select>
+    <button type="submit">Add to Workout</button>
+</form>
+<br>
+<% if ( user?._id.equals(workout.user) ) { %>
+    <a href="/workouts/<%= workout._id%>/edit"><button>Edit Workout</button></a>
+    <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Workout</button>
+    </form>
+    <% } %>
 
 <%- include('../partials/footer') %>

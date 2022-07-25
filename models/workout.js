@@ -5,7 +5,6 @@ const workoutSchema = new Schema({
     name: {
         type: String,
         required: true,
-        unique: true
     },
     targetArea: {
         type: String,
@@ -19,7 +18,12 @@ const workoutSchema = new Schema({
         type: Schema.Types.ObjectId, 
         ref: 'User'},
     userName: String,
-    userAvatar: String
+    userAvatar: String,
+    exerciseList: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Exercise', 
+    }]
+
 })
 
 module.exports = mongoose.model('Workout', workoutSchema)

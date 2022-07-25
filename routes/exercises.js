@@ -21,8 +21,14 @@ router.get('/exercises/:id/edit', isLoggedIn, exercisesCtrl.edit)
 // Delete Function
 router.delete('/exercises/:id', isLoggedIn, exercisesCtrl.delete)
 
-// Update Function
+// Update
 router.put('/exercises/:id', isLoggedIn, exercisesCtrl.update)
+
+// Post Function
+router.post('/workouts/:id/exercises', isLoggedIn, exercisesCtrl.addToExerciseList);
+
+// // Delete Function :TODO
+router.delete('/workouts/:id/exercises/:exerciseId', isLoggedIn, exercisesCtrl.removeFromExerciseList)
 
 
 

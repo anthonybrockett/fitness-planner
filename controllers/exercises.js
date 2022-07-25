@@ -1,4 +1,5 @@
 const Exercise = require('../models/exercise');
+const Workout = require('../models/workout');
 
 module.exports = {
     index,
@@ -7,7 +8,9 @@ module.exports = {
     show,
     delete: deleteExercise,
     edit,
-    update
+    update,
+    addToExerciseList,
+    removeFromExerciseList
 }
 
 function index(req, res) {
@@ -27,10 +30,8 @@ function create(req, res) {
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
     Exercise.create(req.body, function(err, exercise) {
-        exercise.save(function(err) {
             res.redirect('/exercises')   
         });
-    })
 }
 
 function show(req, res) {
@@ -52,15 +53,47 @@ function edit(req, res) {
         res.render(`exercises/edit`, {title: `${exercise.name}`, exercise })
     });
 }
-    
+
+// TODO
+// function update(req, res) {
+//     console.log('hello')
+//     Exercise.findById(req.params.id, function(err, exercise) {
+//         exercise.name = req.body.name;
+//         exercise.targetArea = req.body.targetArea;
+//         exercise.difficulty = req.body.difficulty;
+//         res.redirect(`/exercises/${req.params.id}`)
+//     });
+// }
+
 function update(req, res) {
-    Exercise.findById(req.params.id, function(err, updatedExercise) {
-        // exercise.name = req.body.name;
-        // exercise.targetArea = req.body.targetArea;
-        // exercise.difficulty = req.body.difficulty;
-        req.body.name = updatedExercise.name;
-        req.body.targetArea = updatedExercise.targetArea;
-        req.body.difficulty = updatedExercise.difficulty;
-        res.redirect(`/exercises/${req.params.id}`)
+    Exercise.findOneAndUpdate(
+      {_id: req.params.id},
+      req.body,
+      {new: true},
+      function(err, exercise) {
+        if (err || !exercise) return res.redirect('/exercise');
+        res.redirect(`/exercises/${exercise._id}`);
+      }
+    );
+}
+
+function addToExerciseList(req, res) {
+    Workout.findById(req.params.id, function(err, workout) {
+        workout.exerciseList.push(req.body.exerciseId);
+        workout.save(function(err) {
+            res.redirect(`/workouts/${workout._id}`);
+        });
     });
+}
+
+// TODO
+
+function removeFromExerciseList(req, res) {
+    Workout.findById(req.params.id, function(err, workout) {
+        console.log(workout.exerciseList.indexOf(req.params.exerciseId))
+        workout.exerciseList.remove(req.params.exerciseId);
+        workout.save(function(err){
+            res.redirect(`/workouts/${workout._id}`);
+        })
+    })
 }
