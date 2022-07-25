@@ -6,26 +6,25 @@
 
 <% if (workout.exerciseList.length) { %>
     <table>
-        <!-- <thead>
-            <tr>
-                <th>Name</th>
-                <th>Target Area</th>
-                <th>Difficulty</th>
-            </tr>
-        </thead> -->
         <tbody>
             <% workout.exerciseList.forEach(function(e) { %>
                 <tr>
                     <td><%= e.name %></td>
-                    <!-- <td><%= e.targetArea %></td> -->
-                    <!-- <td><%= e.difficulty %></td> -->
                     <td>
                         <% if ( user?._id.equals(workout.user) ) { %>
-                          <form action="/workouts/<%= workout._id %>/exercises/<%= e._id %>?_method=DELETE" method="POST">
-                            <button type="submit">Remove</button>
-                          </form>
+                            <form action="/exercises/<%= e._id %>" method="GET">
+                                <button type="submit">Details</button>
+                            </form>
                         <% } %>
-                      </td>
+                    </td>
+                    <td>
+                        <% if ( user?._id.equals(workout.user) ) { %>
+                            <form action="/workouts/<%= workout._id %>/exercises/<%= e._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Remove</button>
+                            </form>
+                        <% } %>
+                    </td>
+                </tr>
                 </tr>
             <% }) %>
         </tbody>
