@@ -41,7 +41,7 @@ function show(req, res) {
     .populate('exerciseList')
     .exec(function(err, workout) {
         Exercise.find(
-            {},
+            {_id: {$nin: workout.exerciseList}},
             function(err, exercises) {
                 res.render('workouts/show', {
                     title: `${workout.name} Detail`, 
