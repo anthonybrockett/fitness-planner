@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <% if (user && workouts.length ) { %>
-    <table>
+    <table id="workout-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -22,9 +22,10 @@
             <% }) %>
         </tbody>
     </table>
-    <tr><a href="/workouts/new" style="margin:5px"><button>New Workout</button></a></tr>
+    <br>
+    <div><a href="/workouts/new" style="margin:5px"><button>New Workout</button></a></div>
 <% } else if (user) { %>
-    <table>      
+    <table id="workout-table">      
         <tbody>
                 <tr>
                     <td>No Workouts Yet</td>
@@ -37,8 +38,8 @@
         </tbody>
     </table>
 <% } else { %>
-    <h3>Sample List</h3>
-    <table>
+    <h3 style="color:whitesmoke">Sample List</h3>
+    <table id="workout-table">
         <thead>
             <tr>
                 <th>Name</th>
@@ -53,7 +54,7 @@
                     <td>None</td>
                 </tr>
                 <tr>
-                    <td>Chest and Triceps</td>
+                    <td>Chest and Triceps</td> 
                     <td>Upper Body</td>
                     <td>Minimal</td>
                 </tr>

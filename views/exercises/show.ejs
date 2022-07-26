@@ -1,60 +1,62 @@
 <%- include('../partials/header') %>
 
-<section>
-    <div>Target Area: <%= exercise.targetArea %></div>
-    <div>Difficulty: <%= exercise.difficulty %></div><br>
-</section>
+<div id="exercise-detail">
+    <section>
+        <div>Target Area: <%= exercise.targetArea %></div>
+        <div>Difficulty: <%= exercise.difficulty %></div><br>
+    </section>
 
-<section>
-<% if (user) { %>
-    <form id="add-enote-form" method="POST"
-      action="/exercises/<%= exercise._id %>/enotes">
-      <label>Note:</label>
-      <textarea name="content"></textarea>
-      <input type="submit" value="Add Note">
-    </form>
-<% } %>
-  
-  <% if (exercise.enotes.length) { %>
-    <table>
-        <th>Notes:</th>
-      <tbody>
-        <% exercise.enotes.forEach(function(e) { %>
-          <tr>
-            <td><%= e.content %></td>
-            <td>
-              <% if ( user?._id.equals(e.user) ) { %>
-                <form action="/enotes/<%= e._id %>?_method=DELETE" method="POST">
-                  <button type="submit">X</button>
-                </form>
-              <% } %>
-            </td>
-          </tr>
-          <% }); %>
-      </tbody>
-    </table>
-  <% } else { %>
-    <h5>No Notes Yet</h5>
-  <% } %>
-</section>
-<section>
-    <% if ( user?._id.equals(exercise.user) ) { %>
-        <table>
-            <tbody>
-                <tr>
-                    <td>
-                        <a href="/exercises/<%= exercise._id%>/edit"><button>Edit Exercise</button></a>
-                    </td>
-                    <td>
-                        <form action="/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
-                            <button type="submit">Delete Exercise</button>
-                        </form>
-
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <section>
+    <% if (user) { %>
+        <form id="add-enote-form" method="POST"
+        action="/exercises/<%= exercise._id %>/enotes">
+        <label>Note:</label>
+        <textarea name="content"></textarea>
+        <input type="submit" value="Add Note">
+        </form>
     <% } %>
-</section>
+    
+    <% if (exercise.enotes.length) { %>
+        <table>
+            <th style="font-size:18px">Notes:</th>
+        <tbody>
+            <% exercise.enotes.forEach(function(e) { %>
+            <tr>
+                <td style="font-size:14px"><%= e.content %></td>
+                <td>
+                <% if ( user?._id.equals(e.user) ) { %>
+                    <form action="/enotes/<%= e._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                    </form>
+                <% } %>
+                </td>
+            </tr>
+            <% }); %>
+        </tbody>
+        </table>
+    <% } else { %>
+        <h5>No Notes Yet</h5>
+    <% } %>
+    </section>
+    <section>
+        <% if ( user?._id.equals(exercise.user) ) { %>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="/exercises/<%= exercise._id%>/edit"><button>Edit Exercise</button></a>
+                        </td>
+                        <td>
+                            <form action="/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
+                                <button type="submit">Delete Exercise</button>
+                            </form>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        <% } %>
+    </section>
+</div>
 
 <%- include('../partials/footer') %>

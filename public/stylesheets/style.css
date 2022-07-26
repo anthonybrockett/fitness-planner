@@ -1,4 +1,7 @@
 body {
+  background-image: url("https://i.imgur.com/7UihpE8.jpg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   margin: 5px;
   height: 100vh;
   display: grid;
@@ -14,7 +17,9 @@ a {
 
 body > nav {
   grid-area: nav;
-  background-color: #B8C0C2;
+  background-image: url("https://i.imgur.com/qWjfwU4.jpg");
+  background-size: 100vw;
+  background-repeat: no-repeat;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -33,6 +38,7 @@ nav > a {
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
+  color: white;
 }
 
 nav > a:hover:not(.active) {
@@ -43,6 +49,7 @@ nav > a:hover:not(.active) {
 nav > a.active {
   color: white;
   cursor: default;
+  background-color: lightgray;
 }
 
 .login {
@@ -62,12 +69,75 @@ table {
 }
 
 table thead th {
+  font-size: 18px;
   padding: 5px;
   border-bottom: 2px solid #424748;
 }
 
 table td {
+  font-size: 15px;
   padding: 10px;
   text-align: center;
   min-width: 100px;
+}
+
+#workout-table {
+  background-color: #D3D3D3;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#exercise-table {
+  background-color: #D3D3D3;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#new-workout-form {
+  background-color: #D3D3D3;
+  width: 150px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#new-exercise-form {
+  background-color: #D3D3D3;
+  width: 150px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#workout-detail {
+  background-color: #D3D3D3;
+  width: 375px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#exercise-detail {
+  background-color: #D3D3D3;
+  width: 250px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#edit-workout-form {
+  background-color: #D3D3D3;
+  width: 300px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#edit-exercise-form {
+  background-color: #D3D3D3;
+  width: 300px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
+#home-text {
+  width: 50vw;
+  background-color: #D3D3D3;
+  border-radius: 5px;
+  padding: 3px;
 }

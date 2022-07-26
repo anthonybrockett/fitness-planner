@@ -54,17 +54,6 @@ function edit(req, res) {
     });
 }
 
-// TODO
-// function update(req, res) {
-//     console.log('hello')
-//     Exercise.findById(req.params.id, function(err, exercise) {
-//         exercise.name = req.body.name;
-//         exercise.targetArea = req.body.targetArea;
-//         exercise.difficulty = req.body.difficulty;
-//         res.redirect(`/exercises/${req.params.id}`)
-//     });
-// }
-
 function update(req, res) {
     Exercise.findOneAndUpdate(
       {_id: req.params.id},
@@ -86,11 +75,8 @@ function addToExerciseList(req, res) {
     });
 }
 
-// TODO
-
 function removeFromExerciseList(req, res) {
     Workout.findById(req.params.id, function(err, workout) {
-        console.log(workout.exerciseList.indexOf(req.params.exerciseId))
         workout.exerciseList.remove(req.params.exerciseId);
         workout.save(function(err){
             res.redirect(`/workouts/${workout._id}`);
