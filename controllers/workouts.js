@@ -54,32 +54,23 @@ function show(req, res) {
 }
 
 function deleteWorkout(req, res) {
-    Workout.findById(req.params.id, function(err, workout) {
-        if (!workout) throw new Error('Nice Try!');
-        workout.remove(req.params.id);
-        res.redirect(`/workouts`);
-    });
+    Workout.findOneAndDelete(
+        {_id: req.params.id, user: req.user._id}, function(err) {
+          res.redirect('/workouts');
+        }
+    );
 }
 
 function edit(req, res) {
-    Workout.findById(req.params.id, function(err, workout) {
-        res.render(`workouts/edit`, {title: `${workout.name}`, workout })
-    });
-}
-
-// TODO Update not flowing through
-function update(req, res) {
-    Workout.findOneAndUpdate(req.params.id, function(err, updatedWorkout) {
-        req.body.name = updatedWorkout.name;
-        req.body.targetArea = updatedWorkout.targetArea;
-        req.body.equipment = updatedWorkout.equipment;
-        res.redirect(`/workouts/${req.params.id}`)
+    Workout.findOne({_id: req.params.id, user: req.user._id}, function(err, workout) {
+        if (err || !workout) return res.redirect('/workouts');
+        res.render('workouts/edit', {title: `${workout.name}`, workout });
     });
 }
 
 function update(req, res) {
     Workout.findOneAndUpdate(
-      {_id: req.params.id},
+      {_id: req.params.id, user: req.user._id},
       req.body,
       {new: true},
       function(err, workout) {

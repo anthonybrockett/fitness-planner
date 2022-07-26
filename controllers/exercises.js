@@ -41,22 +41,23 @@ function show(req, res) {
 }
 
 function deleteExercise(req, res) {
-    Exercise.findById(req.params.id, function(err, exercise) {
-        if (!exercise) throw new Error('Nice Try!');
-        exercise.remove(req.params.id);
-        res.redirect(`/exercises`);
-    });
+    Exercise.findOneAndDelete(
+        {_id: req.params.id, user: req.user._id}, function(err) {
+            res.redirect('/exercises');
+        }
+    );
 }
 
 function edit(req, res) {
-    Exercise.findById(req.params.id, function(err, exercise) {
-        res.render(`exercises/edit`, {title: `${exercise.name}`, exercise })
+    Exercise.findOne({_id: req.params.id, user: req.user._id}, function(err, exercise) {
+        if (err || !exercise) return res.redirect('/exercises');
+        res.render('exercises/edit', {title: `${exercise.name}`, exercise});
     });
 }
 
 function update(req, res) {
     Exercise.findOneAndUpdate(
-      {_id: req.params.id},
+      {_id: req.params.id, user: req.user._id},
       req.body,
       {new: true},
       function(err, exercise) {
