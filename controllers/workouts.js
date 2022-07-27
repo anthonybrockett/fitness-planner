@@ -11,14 +11,6 @@ module.exports = {
     update,
 }
 
-// function index(req, res) {
-//     Workout.find({}, function(err, workouts) {
-//         res.render('workouts/index', { title: 'Workouts', workouts})
-//     })
-//     .sort('targetArea')
-//     .sort('name')
-// }
-
 function index(req, res) {
     Workout.find({user: req.user})
         .sort({targetArea: 1, name: 1})
@@ -31,7 +23,6 @@ function newWorkout(req, res) {
     res.render('workouts/new', { title: 'New Workout'})
 }
 
-// TODO: Can only create a workout if the ones present have exercises
 function create(req, res) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;

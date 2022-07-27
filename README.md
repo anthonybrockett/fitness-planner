@@ -1,4 +1,4 @@
-<img src="">
+<img src="https://i.imgur.com/SmA7rcP.jpg">
 
 # Fitness Planner
 
@@ -29,7 +29,8 @@ By utilizing this platform, you will be able to add your favorite workouts, add 
 
 ## Getting Started
 
-[Link to the App]()
+[Fitness Planner](https://fitness-planner-621.herokuapp.com/)
+[Trello Board](https://trello.com/b/TiiQjqaC)
 
 When you arrive on the platform, you will be able to sign in with your Google account to access all of the features.
 
