@@ -29,7 +29,7 @@ By utilizing this platform, you will be able to add your favorite workouts, add 
 
 ## Getting Started
 
-[Fitness Planner](https://fitness-planner-621.herokuapp.com/)
+[Fitness Planner](https://fitness-planner-621.herokuapp.com/)<br>
 [Trello Board](https://trello.com/b/TiiQjqaC)
 
 When you arrive on the platform, you will be able to sign in with your Google account to access all of the features.
@@ -45,7 +45,7 @@ Once signed in, the navigation links at the top of the page will direct you to t
 * New Workout
 * Log Out
 
-Once you have exercises/workouts have been created, they can be viewed via the corresponding navigation links and modified (including adding exercises to a workout) by viewing the detail for that particular item.
+Once exercises/workouts have been created, they can be viewed via the corresponding navigation links and modified (including adding exercises to a workout) by viewing the detail for that particular item.
 
 ## Future Updates
 
