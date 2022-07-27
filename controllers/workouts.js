@@ -11,12 +11,20 @@ module.exports = {
     update,
 }
 
+// function index(req, res) {
+//     Workout.find({}, function(err, workouts) {
+//         res.render('workouts/index', { title: 'Workouts', workouts})
+//     })
+//     .sort('targetArea')
+//     .sort('name')
+// }
+
 function index(req, res) {
-    Workout.find({}, function(err, workouts) {
-        res.render('workouts/index', { title: 'Workouts', workouts})
-    })
-    .sort('targetArea')
-    .sort('name')
+    Workout.find({user: req.user})
+        .sort({targetArea: 1, name: 1})
+        .exec(function(err, workouts) {
+           res.render('workouts/index', { title: 'Workouts', workouts})
+         });
 }
 
 function newWorkout(req, res) {

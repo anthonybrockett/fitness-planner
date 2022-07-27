@@ -14,11 +14,11 @@ module.exports = {
 }
 
 function index(req, res) {
-    Exercise.find({}, function(err, exercises) {
-        res.render('exercises/index', { title: 'Exercise List', exercises})
-    })
-    .sort('targetArea')
-    .sort('name')
+    Exercise.find({user: req.user})
+        .sort({targetArea: 1, name: 1})
+        .exec(function(err, exercises) {
+           res.render('exercises/index', { title: 'Exercise List', exercises})
+         });
 }
 
 function newExercise(req, res) {

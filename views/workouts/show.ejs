@@ -38,7 +38,10 @@
 
     <form id="add-exercise-to-workout" action="/workouts/<%= workout._id %>/exercises" method="POST">
         <select name="exerciseId">
-            <% let newExercises = exercises.slice(0); %>
+            <% let newExercises = []; %>
+            <% exercises.forEach(function(e) { %>
+                <% if ( user?._id.equals(e.user)) { %>
+                    <% newExercises.push(e) }}) %>
             <%- newExercises.map(e => 
             `<option value="${e._id}">${e.name}</option>`
             ).join('') %>
