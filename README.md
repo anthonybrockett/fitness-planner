@@ -6,15 +6,15 @@
 
 The idea behind this platform is simple: there are an endless number of workouts out there, and keeping track of the ones you love is difficult!
 
-By utilizing this platform, you will be able to add your favorite workouts and add exercises to them.
+By utilizing this platform, you will be able to add your favorite workouts, add exercises to them, and, best of all, keep them in one place!
 
 ## Screenshots
 
-<img src="">
+<img src="https://i.imgur.com/Wo2nM3E.png">
 
-<img src="">
+<img src="https://i.imgur.com/hTWAwXt.png">
 
-<img src="">
+<img src="https://i.imgur.com/8qbRmh7.png">
 
 
 ## Technologies Used
@@ -49,3 +49,4 @@ Once you have exercises/workouts have been created, they can be viewed via the c
 ## Future Updates
 
 1. Ability to log/track each time a workout is completed
+2. User Profile Page
