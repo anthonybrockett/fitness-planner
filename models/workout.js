@@ -9,10 +9,12 @@ const workoutSchema = new Schema({
     targetArea: {
         type: String,
         required: true,
+        enum: ['Cardio', 'Core', 'Full Body', 'Upper Body', 'Lower Body']
     },
     equipment: {
         type: String,
-        required: true
+        required: true,
+        enum: ['None', 'Minimal', 'Moderate', 'Substantial']
     },
     user: {
         type: Schema.Types.ObjectId, 

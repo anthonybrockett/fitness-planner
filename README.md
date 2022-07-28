@@ -10,8 +10,6 @@ By utilizing this platform, you will be able to add your favorite workouts, add 
 
 ## Screenshots
 
-<img src="https://i.imgur.com/Wo2nM3E.png">
-
 <img src="https://i.imgur.com/hTWAwXt.png">
 
 <img src="https://i.imgur.com/8qbRmh7.png">
@@ -25,7 +23,8 @@ By utilizing this platform, you will be able to add your favorite workouts, add 
 4. Markdown
 5. Express
 6. MongoDb
-7. Heroku
+7. Mongoose
+8. Heroku
 
 ## Getting Started
 

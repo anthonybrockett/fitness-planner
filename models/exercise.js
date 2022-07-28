@@ -20,10 +20,12 @@ const exerciseSchema = new Schema({
     targetArea: {
         type: String,
         required: true,
+        enum: ['Arms', 'Back', 'Cardio', 'Chest', 'Core', 'Legs', 'Shoulders', 'Warm Up' ]
     },
     difficulty: {
         type: String,
-        required: true
+        required: true,
+        enum: ['Beginner', 'Intermediate', 'Advanced']
     },
     user: {
         type: Schema.Types.ObjectId, 
