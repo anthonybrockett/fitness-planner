@@ -10,6 +10,8 @@ By utilizing this platform, you will be able to add your favorite workouts, add 
 
 ## Screenshots
 
+<img src="https://i.imgur.com/d4wglyb.png">
+
 <img src="https://i.imgur.com/hTWAwXt.png">
 
 <img src="https://i.imgur.com/8qbRmh7.png">
