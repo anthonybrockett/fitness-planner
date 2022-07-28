@@ -16,14 +16,14 @@
                         <td>
                             <% if ( user?._id.equals(workout.user) ) { %>
                                 <form action="/exercises/<%= e._id %>" method="GET">
-                                    <button type="submit">Details</button>
+                                    <button type="submit" class="button">Details</button>
                                 </form>
                             <% } %>
                         </td>
                         <td>
                             <% if ( user?._id.equals(workout.user) ) { %>
                                 <form action="/workouts/<%= workout._id %>/exercises/<%= e._id %>?_method=DELETE" method="POST">
-                                    <button type="submit">Remove</button>
+                                    <button type="submit" class="button">Remove</button>
                                 </form>
                             <% } %>
                         </td>
@@ -46,7 +46,7 @@
             `<option value="${e._id}">${e.name}</option>`
             ).join('') %>
         </select>
-        <button type="submit">Add to Workout</button>
+        <button type="submit" class="button">Add to Workout</button>
     </form>
     <br>
     <section>
@@ -55,11 +55,11 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="/workouts/<%= workout._id%>/edit"><button>Edit Workout</button></a>
+                            <a href="/workouts/<%= workout._id%>/edit"><button class="button">Edit Workout</button></a>
                         </td>
                         <td>
                             <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
-                                <button type="submit">Delete Workout</button>
+                                <button type="submit" class="button">Delete Workout</button>
                             </form>
                         </td>
                     </tr>

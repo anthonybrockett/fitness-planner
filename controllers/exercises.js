@@ -61,7 +61,7 @@ function update(req, res) {
       req.body,
       {new: true},
       function(err, exercise) {
-        if (err || !exercise) return res.redirect('/exercise');
+        if (err || !exercise) return res.redirect('/exercises');
         res.redirect(`/exercises/${exercise._id}`);
       }
     );

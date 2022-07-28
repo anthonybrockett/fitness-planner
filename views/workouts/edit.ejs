@@ -23,11 +23,11 @@
             <option value="Substantial" <%= (workout.equipment  === "Substantial") ? "selected" : "" %>>Substantial</option>
         </select>
         <p></p>
-        <input type="submit" value="Save Changes">
+        <input type="submit" value="Save Changes" class="button">
     </form>
     <br>
     <form action="/workouts/<%= workout._id %>" method="GET" autocomplete="off">
-        <input type="submit" value="Discard Changes">
+        <input type="submit" value="Discard Changes" class="button">
     </form>
 </section>
 

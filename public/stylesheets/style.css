@@ -116,7 +116,7 @@ table td {
 
 #exercise-detail {
   background-color: #D3D3D3;
-  width: 325px;
+  width: 300px;
   border-radius: 5px;
   padding: 3px;
 }
@@ -140,4 +140,13 @@ table td {
   background-color: #D3D3D3;
   border-radius: 5px;
   padding: 3px;
+}
+
+.button:active {
+  transform: translateY(2px);
+}
+
+textarea {
+  resize: none;
+  height: 50px;
 }

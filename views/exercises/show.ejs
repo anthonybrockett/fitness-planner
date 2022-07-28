@@ -12,7 +12,7 @@
         action="/exercises/<%= exercise._id %>/enotes">
         <label>Note:</label>
         <textarea name="content"></textarea>
-        <input type="submit" value="Add Note">
+        <input type="submit" value="Add Note" class="button">
         </form>
     <% } %>
     
@@ -26,7 +26,7 @@
                 <td>
                 <% if ( user?._id.equals(e.user) ) { %>
                     <form action="/enotes/<%= e._id %>?_method=DELETE" method="POST">
-                    <button type="submit">X</button>
+                    <button type="submit" class="button">X</button>
                     </form>
                 <% } %>
                 </td>
@@ -44,11 +44,11 @@
                 <tbody>
                     <tr>
                         <td>
-                            <a href="/exercises/<%= exercise._id%>/edit"><button>Edit Exercise</button></a>
+                            <a href="/exercises/<%= exercise._id%>/edit"><button class="button">Edit Exercise</button></a>
                         </td>
                         <td>
                             <form action="/exercises/<%= exercise._id %>?_method=DELETE" method="POST">
-                                <button type="submit">Delete Exercise</button>
+                                <button type="submit" class="button">Delete Exercise</button>
                             </form>
 
                         </td>

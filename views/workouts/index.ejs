@@ -16,14 +16,14 @@
                         <td><%= w.name %></td>
                         <td><%= w.targetArea %></td>
                         <td><%= w.equipment %></td>
-                        <td><a href="/workouts/<%= w._id %>" style="color:black"><button>Details</button></a></td>
+                        <td><a href="/workouts/<%= w._id %>" style="color:black"><button class="button">Details</button></a></td>
                     </tr>
                 <% } %>
             <% }) %>
         </tbody>
     </table>
     <br>
-    <div><a href="/workouts/new" style="margin:5px"><button>New Workout</button></a></div>
+    <div><a href="/workouts/new" style="margin:5px"><button class="button">New Workout</button></a></div>
 <% } else if (user) { %>
     <table id="workout-table">      
         <tbody>
@@ -32,7 +32,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="/workouts/new" style="margin:5px"><button>New Workout</button></a>
+                        <a href="/workouts/new" style="margin:5px"><button class="button">New Workout</button></a>
                     </td>
                 </tr>
         </tbody>
